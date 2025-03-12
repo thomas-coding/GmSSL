@@ -28,6 +28,7 @@ extern int reqgen_main(int argc, char **argv);
 extern int reqparse_main(int argc, char **argv);
 extern int reqsign_main(int argc, char **argv);
 extern int sm2keygen_main(int argc, char **argv);
+extern int sm2keygenraw_main(int argc, char **argv);
 extern int sm2sign_main(int argc, char **argv);
 extern int sm2verify_main(int argc, char **argv);
 extern int sm2encrypt_main(int argc, char **argv);
@@ -66,6 +67,7 @@ static const char *options =
 	"  version         Print version\n"
 	"  rand            Generate random bytes\n"
 	"  sm2keygen       Generate SM2 keypair\n"
+	"  sm2keygenraw    Generate SM2 keypair raw\n"
 	"  sm2sign         Generate SM2 signature\n"
 	"  sm2verify       Verify SM2 signature\n"
 	"  sm2encrypt      Encrypt with SM2 public key\n"
@@ -157,6 +159,8 @@ int main(int argc, char **argv)
 			return pbkdf2_main(argc, argv);
 		} else if (!strcmp(*argv, "sm2keygen")) {
 			return sm2keygen_main(argc, argv);
+		} else if (!strcmp(*argv, "sm2keygenraw")) {
+			return sm2keygenraw_main(argc, argv);
 		} else if (!strcmp(*argv, "sm2sign")) {
 			return sm2sign_main(argc, argv);
 		} else if (!strcmp(*argv, "sm2verify")) {
